@@ -30,13 +30,13 @@ func main() {
 		log.Fatal(s.Err())
 	}
 
-	format := "%-70s%2f\n"
+	format := "%f\t%s\n"
 	sort.Sort(ents)
 
 	if *gt != 0 {
 		for _, e := range ents {
 			if e.ent > *gt {
-				fmt.Printf(format, e.str, e.ent)
+				fmt.Printf(format, e.ent, e.str)
 			}
 		}
 		os.Exit(0)
@@ -45,14 +45,14 @@ func main() {
 	if *lt != 0 {
 		for _, e := range ents {
 			if e.ent < *lt {
-				fmt.Printf(format, e.str, e.ent)
+				fmt.Printf(format, e.ent, e.str)
 			}
 		}
 		os.Exit(0)
 	}
 
 	for _, e := range ents {
-		fmt.Printf(format, e.str, e.ent)
+		fmt.Printf(format, e.ent, e.str)
 	}
 }
 
